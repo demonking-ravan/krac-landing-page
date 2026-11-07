@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kautilya Research & Consulting | Political Intelligence & Strategic Execution</title>
+
+    <!-- Google Fonts: Newsreader (Editorial Serif) & Plus Jakarta Sans (Clean Body) & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Newsreader"', 'Georgia', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        cream: {
+                            50: '#FDFDFB',
+                            100: '#FBFBF9',
+                            200: '#F5F5F0',
+                            300: '#EBEBE5',
+                            400: '#DEDECF'
+                        },
+                        sage: {
+                            50: '#F2F7F0',
+                            100: '#E4EFE0',
+                            200: '#C8DEBF',
+                            500: '#528347',
+                            700: '#2E5A27',
+                            800: '#23441E',
+                            900: '#172E14'
+                        },
+                        ink: {
+                            900: '#111518',
+                            800: '#1F2429',
+                            700: '#333A42',
+                            600: '#525C67',
+                            500: '#6E7A87',
+                            400: '#9AA3AF'
+                        },
+                        deepnavy: {
+                            900: '#0B151F',
+                            850: '#0F1E2C',
+                            800: '#162737',
+                            700: '#233A50'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Warm, tactile border and card defaults */
+        .border-subtle {
+            border: 1px solid #EBEBE5;
+        }
+
+        .card-clean {
+            background-color: #FFFFFF;
+            border: 1px solid #EAEAE4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(27, 31, 35, 0.03);
+        }
+
+        .card-clean:hover {
+            border-color: #D6D6CC;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hide scrollbars cleanly */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-[#FBFBF9] text-ink-900 font-sans selection:bg-sage-200 selection:text-sage-900 antialiased overflow-x-hidden">
+
+    <!-- TOP STRIP -->
+    <div
+        class="bg-sage-50 border-b border-sage-200/60 py-2 px-4 text-center text-[12px] font-medium text-sage-800 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+        <span>PAN India Ground Research & Manpower Deployment Active across 14+ States</span>
+        <span class="hidden md:inline text-sage-700/40">|</span>
+        <a href="#careers"
+            class="hidden md:inline font-semibold underline underline-offset-2 hover:text-sage-900 transition">View
+            Active Openings &rarr;</a>
+    </div>
+
+    <!-- STICKY NAVIGATION -->
+    <header
+        class="sticky top-0 z-40 bg-[#FBFBF9]/90 backdrop-blur-md border-b border-cream-300 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Logo Branding -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-lg bg-deepnavy-850 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
+                    K
+                </div>
+                <div>
+                    <span
+                        class="font-sans font-extrabold tracking-tight text-lg text-ink-900 block leading-tight">KAUTILYA</span>
+                    <span
+                        class="text-[10px] uppercase font-mono tracking-[0.2em] text-ink-500 font-medium block">Research
+                        & Consulting</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-[13.5px] font-medium text-ink-600">
+                <a href="#about" class="hover:text-ink-900 transition">About Us</a>
+                <a href="#services" class="hover:text-ink-900 transition">Capabilities</a>
+                <a href="#expertise" class="hover:text-ink-900 transition">Expertise</a>
+                <a href="#methodology" class="hover:text-ink-900 transition">Methodology</a>
+                <a href="#projects" class="hover:text-ink-900 transition">Projects</a>
+                <a href="#careers" class="hover:text-ink-900 transition flex items-center gap-1.5">
+                    Careers
+                    <span
+                        class="px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-sage-100 text-sage-800 border border-sage-200">Hiring</span>
+                </a>
+            </nav>
+
+            <!-- Desktop CTAs -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:7900595639"
+                    class="text-xs font-mono text-ink-600 hover:text-ink-900 flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-cream-200 transition">
+                    <i data-lucide="phone-call" class="w-3.5 h-3.5 text-sage-700"></i>
+                    +91 7900595639
+                </a>
+                <a href="#contact"
+                    class="px-5 py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm flex items-center gap-2">
+                    <span>Connect With Us</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn"
+                class="lg:hidden p-2 rounded-lg border border-cream-300 text-ink-700 hover:bg-cream-200 transition"
+                aria-label="Toggle menu">
+                <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#FBFBF9] border-b border-cream-300 px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-nav-link block text-base font-medium text-ink-800">About Us</a>
+            <a href="#services" class="mobile-nav-link block text-base font-medium text-ink-800">Capabilities</a>
+            <a href="#expertise" class="mobile-nav-link block text-base font-medium text-ink-800">Expertise</a>
+            <a href="#methodology" class="mobile-nav-link block text-base font-medium text-ink-800">Methodology</a>
+            <a href="#projects" class="mobile-nav-link block text-base font-medium text-ink-800">Projects</a>
+            <a href="#careers"
+                class="mobile-nav-link block text-base font-medium text-ink-800 flex items-center justify-between">
+                <span>Careers at KRAC</span>
+                <span class="text-xs bg-sage-100 text-sage-800 font-semibold px-2 py-0.5 rounded">Hiring</span>
+            </a>
+            <a href="#contact" class="mobile-nav-link block text-base font-medium text-sage-700">Connect With Us
+                &rarr;</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <!-- Sage Pill Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-100 border border-sage-200/80 text-sage-800 text-[11px] sm:text-xs font-semibold tracking-wide mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span>
+                <span>Where Political Intelligence Meets Strategic Execution</span>
+            </div>
+
+            <!-- Refined Editorial Headline -->
+            <h1
+                class="font-serif font-normal text-4xl sm:text-6xl md:text-7xl text-ink-900 tracking-tight leading-[1.08] mb-6 max-w-4xl mx-auto">
+                Understanding Politics. Building Strategies. <br class="hidden sm:inline" />
+                <span class="italic font-normal text-sage-800">Delivering Impact.</span>
+            </h1>
+
+            <!-- Subtitle Description -->
+            <p class="text-base sm:text-lg text-ink-600 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                <strong class="font-semibold text-ink-900">Kautilya Research & Consulting (KRAC)</strong> delivers
+                integrated solutions across political strategy, election management, statistical research, big data
+                analytics, media intelligence, and grassroots field operations.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
+                <a href="#services"
+                    class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-sm transition shadow-sm flex items-center justify-center gap-2">
+                    <span>Explore Our Services</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact"
+                    class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-white hover:bg-cream-200 border border-cream-300 text-ink-800 font-medium text-sm transition shadow-2xs flex items-center justify-center gap-2">
+                    <span>Connect With Us</span>
+                </a>
+            </div>
+
+            <!-- Trust Metrics Strip -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-px bg-cream-300 rounded-xl overflow-hidden border border-cream-300 card-clean text-left">
+                <div class="p-6 bg-white">
+                    <div class="font-serif text-3xl sm:text-4xl text-ink-900">500+</div>
+                    <div class="text-[12px] text-ink-500 font-medium mt-1">Constituency Studies</div>
+                    <div class="text-[10px] text-sage-700 font-mono mt-0.5">Vidhan & Lok Sabha</div>
+                </div>
+                <div class="p-6 bg-white">
+                    <div class="font-serif text-3xl sm:text-4xl text-sage-700">10M+</div>
+                    <div class="text-[12px] text-ink-500 font-medium mt-1">Interviews Conducted</div>
+                    <div class="text-[10px] text-sage-700 font-mono mt-0.5">CAPI & CATI Verified</div>
+                </div>
+                <div class="p-6 bg-white">
+                    <div class="font-serif text-3xl sm:text-4xl text-ink-900">10,000+</div>
+                    <div class="text-[12px] text-ink-500 font-medium mt-1">Field Investigators</div>
+                    <div class="text-[10px] text-sage-700 font-mono mt-0.5">PAN India Database</div>
+                </div>
+                <div class="p-6 bg-white">
+                    <div class="font-serif text-3xl sm:text-4xl text-ink-900">28+</div>
+                    <div class="text-[12px] text-ink-500 font-medium mt-1">States & Union Territories</div>
+                    <div class="text-[10px] text-sage-700 font-mono mt-0.5">Regional Linguistic Depth</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTRODUCTION / PHILOSOPHY -->
+    <section id="about" class="py-20 md:py-28 bg-[#F4F4EE]/60 border-y border-cream-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200">
+                        About Kautilya Research & Consulting
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight leading-tight">
+                        Strategy Begins with Understanding the <span class="italic text-sage-800">Ground Reality.</span>
+                    </h2>
+
+                    <p class="text-sm sm:text-base text-ink-600 leading-relaxed font-light">
+                        In today's dynamic political environment, informed decisions require more than conventional
+                        approaches. They demand reliable research, a deeper understanding of public sentiment, strong
+                        organisational capabilities and effective execution.
+                    </p>
+
+                    <p class="text-sm text-ink-600 leading-relaxed font-light">
+                        At KRAC, we bring together political consultants, research professionals, data analysts,
+                        campaign managers and field operations teams to deliver comprehensive consulting solutions. From
+                        constituency-level assessments to large-scale research projects and campaign operations, we
+                        focus on transforming information into actionable intelligence.
+                    </p>
+
+                    <!-- Core Quote Callout -->
+                    <div
+                        class="p-6 rounded-xl bg-white border border-cream-300 border-l-4 border-l-sage-700 space-y-2 shadow-2xs">
+                        <span
+                            class="text-[11px] font-mono uppercase tracking-wider text-sage-800 font-semibold block">Our
+                            Philosophy</span>
+                        <p class="font-serif italic text-base sm:text-lg text-ink-900 leading-snug">
+                            "We believe that every effective strategy begins with understanding. Understanding people,
+                            identifying challenges, analysing information and executing solutions form the foundation of
+                            our consulting philosophy."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Clean Structured Cards (Like image reference bento cards) -->
+                <div class="lg:col-span-6 space-y-4">
+
+                    <div class="card-clean rounded-xl p-6 bg-white space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono uppercase tracking-wider text-sage-700 font-semibold">Vision
+                                & Mission</span>
+                            <span class="w-2 h-2 rounded-full bg-sage-500"></span>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900">Institutional Excellence in India</h3>
+                        <p class="text-xs sm:text-sm text-ink-600 leading-relaxed font-light">
+                            <strong>Vision:</strong> To emerge as a trusted and leading political consulting and
+                            research organisation in India, recognised for strategic excellence, research capabilities,
+                            innovation and effective execution.
+                        </p>
+                        <p class="text-xs sm:text-sm text-ink-600 leading-relaxed font-light">
+                            <strong>Mission:</strong> To empower political organisations, public representatives and
+                            institutions with credible research, actionable intelligence, strategic consultation and
+                            professional operational solutions.
+                        </p>
+                    </div>
+
+                    <!-- Structured Values Table -->
+                    <div class="card-clean rounded-xl p-6 bg-white">
+                        <span
+                            class="text-xs font-mono uppercase tracking-wider text-ink-500 font-semibold block mb-3">Our
+                            7 Core Values</span>
+                        <div class="grid grid-cols-2 gap-3 text-xs text-ink-700 font-medium">
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Integrity & Ethics</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Research & Accuracy</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Strategic Thinking</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Innovation & Tech</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Professional Excellence</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-cream-100">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Accountability</span>
+                            </div>
+                            <div
+                                class="col-span-2 flex items-center gap-2 p-2 rounded-lg bg-sage-50 text-sage-900 border border-sage-200">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-sage-700"></i>
+                                <span>Unwavering Commitment to Execution</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CORE CAPABILITIES (7 PILLARS) -->
+    <section id="services" class="py-20 md:py-28 bg-[#FBFBF9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200 mb-4">
+                    Integrated Capabilities
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight">
+                    Comprehensive Consulting & <span class="italic text-sage-800">Research Solutions.</span>
+                </h2>
+                <p class="text-sm sm:text-base text-ink-600 mt-3 font-light">
+                    From constituency assessments to large-scale ground deployment and digital war rooms.
+                </p>
+            </div>
+
+            <!-- 7 Pillars Clean Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- 01 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">01</span>
+                            <i data-lucide="compass" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">Political Consulting & Election Strategy</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Developing strategic frameworks, constituency assessments and customised campaign plans.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• Election strategy and campaign planning</li>
+                            <li class="flex items-center gap-2">• Assembly & constituency-level assessments</li>
+                            <li class="flex items-center gap-2">• Candidate and organisational assessments</li>
+                            <li class="flex items-center gap-2">• Strategic monitoring and evaluation</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('01')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 02 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">02</span>
+                            <i data-lucide="bar-chart-2" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">Political Research & Opinion Polls</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Conducting structured surveys, public opinion research, voter feedback studies and
+                            constituency-level assessments.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• Public opinion surveys & voter feedback</li>
+                            <li class="flex items-center gap-2">• Candidate assessment surveys</li>
+                            <li class="flex items-center gap-2">• Governance & public issue assessments</li>
+                            <li class="flex items-center gap-2">• Pre & post-election comparative studies</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('02')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 03 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">03</span>
+                            <i data-lucide="database" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">Data Analytics & Intelligence</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Transforming raw information into meaningful insights through data collection, verification,
+                            analysis and reporting.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• Multi-tier data cleaning and verification</li>
+                            <li class="flex items-center gap-2">• Booth-level micro-data analysis</li>
+                            <li class="flex items-center gap-2">• Constituency database management</li>
+                            <li class="flex items-center gap-2">• Interactive visual research dashboards</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('03')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 04 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">04</span>
+                            <i data-lucide="users" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">Ground Operations & Booth Management</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Building operational capabilities through field teams, booth-level research, volunteer
+                            coordination and execution.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• Ground team rapid deployment</li>
+                            <li class="flex items-center gap-2">• Booth-level organisational research</li>
+                            <li class="flex items-center gap-2">• Volunteer network coordination</li>
+                            <li class="flex items-center gap-2">• Local stakeholder and influencer mapping</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('04')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 05 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">05</span>
+                            <i data-lucide="sparkles" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">Media & Digital Communication</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Delivering digital media strategies, content development, creative production, social media
+                            management and monitoring.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• Narrative buildup & message framing</li>
+                            <li class="flex items-center gap-2">• Social media management & creative ads</li>
+                            <li class="flex items-center gap-2">• High-impact video editing & design</li>
+                            <li class="flex items-center gap-2">• Media monitoring & reputation checks</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('05')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 06 -->
+                <div class="card-clean rounded-xl p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-700 bg-sage-100 px-2.5 py-1 rounded">06</span>
+                            <i data-lucide="shield" class="w-5 h-5 text-ink-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-ink-900 mb-2">War Room & Campaign Management</h3>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Establishing structured monitoring systems, centralised coordination and campaign execution
+                            frameworks.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-ink-700 font-light border-t border-cream-300 pt-3">
+                            <li class="flex items-center gap-2">• War room planning and physical setup</li>
+                            <li class="flex items-center gap-2">• Centralised campaign coordination</li>
+                            <li class="flex items-center gap-2">• Daily activity & progress tracking</li>
+                            <li class="flex items-center gap-2">• Incident monitoring and rapid escalation</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCapabilityModal('06')"
+                        class="mt-6 pt-3 border-t border-cream-200 text-xs font-semibold text-sage-700 hover:text-sage-900 flex items-center justify-between transition">
+                        <span>View Complete Scope</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 07 (Highlight Card) -->
+                <div
+                    class="card-clean rounded-xl p-7 bg-sage-50/70 border-sage-200 md:col-span-2 lg:col-span-3 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="max-w-3xl">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="text-xs font-mono font-bold text-sage-800 bg-sage-200 px-2.5 py-0.5 rounded">07</span>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-sage-700">Specialized
+                                Hiring & Deployment</span>
+                        </div>
+                        <h3 class="font-serif text-2xl text-ink-900 mb-2">PAN India Research & Manpower Solutions</h3>
+                        <p class="text-xs sm:text-sm text-ink-700 leading-relaxed font-light mb-4">
+                            Deploying specialised research professionals, field investigators, survey executives and
+                            project teams across different regions of India with strict quality audits.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-ink-800 font-medium">
+                            <div class="p-2.5 rounded-lg bg-white border border-sage-200">
+                                <span class="block text-sage-800 font-bold">CATI Surveys</span>
+                                <span class="text-[11px] text-ink-500 font-normal">Telephonic Interviewing</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-sage-200">
+                                <span class="block text-sage-800 font-bold">CAPI Field Ops</span>
+                                <span class="text-[11px] text-ink-500 font-normal">Tablet Personal Surveys</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-sage-200">
+                                <span class="block text-sage-800 font-bold">Audit & QC</span>
+                                <span class="text-[11px] text-ink-500 font-normal">GPS & Voice Verifications</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-sage-200">
+                                <span class="block text-sage-800 font-bold">Bilingual Teams</span>
+                                <span class="text-[11px] text-ink-500 font-normal">Regional Linguistic Depth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 min-w-[200px]">
+                        <button onclick="openCapabilityModal('07')"
+                            class="px-5 py-3 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs text-center transition">
+                            View Detailed Scope
+                        </button>
+                        <a href="#careers"
+                            class="px-5 py-3 rounded-lg bg-white hover:bg-cream-200 border border-cream-300 text-ink-800 font-medium text-xs text-center transition">
+                            Join Manpower Network
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HIGH-CONTRAST DEEP NAVY BREAK SECTION (Matches Reference "See Demo On Your Own Data") -->
+    <section class="py-20 bg-deepnavy-850 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deepnavy-700 text-sage-200 text-xs font-mono font-medium">
+                Research-Led. Strategy-Driven. Execution-Focused.
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+                Gain Actionable Clarity in Your <br class="hidden sm:inline" />
+                <span class="italic text-sage-200">Target Constituencies.</span>
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Let our political research and consulting team analyze baseline voter sentiments, organizational
+                capacity, and demographic matrices to structure your path forward.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact"
+                    class="px-7 py-3.5 rounded-lg bg-sage-500 hover:bg-sage-700 text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm">
+                    Request Confidential Briefing
+                </a>
+                <a href="tel:7900595639"
+                    class="px-7 py-3.5 rounded-lg bg-deepnavy-700 hover:bg-deepnavy-800 text-white font-medium text-xs sm:text-sm transition border border-white/10">
+                    Direct Line: +91 7900595639
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- METHODOLOGY / OUR APPROACH (6-Step Linear Flow) -->
+    <section id="methodology" class="py-20 md:py-28 bg-[#FBFBF9] border-b border-cream-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200 mb-4">
+                    Our Methodology
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight">
+                    A Structured Approach to <span class="italic text-sage-800">Effective Execution.</span>
+                </h2>
+                <p class="text-xs sm:text-sm font-mono text-ink-500 mt-3">
+                    Understand &rarr; Research &rarr; Analyse &rarr; Strategise &rarr; Execute &rarr; Evaluate
+                </p>
+            </div>
+
+            <!-- Clean 6-Step Table / Cards Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">01 / DISCOVERY</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Discovery & Assessment</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Understanding project objectives, requirements, geography, caste/demographic dynamics, and
+                        operational challenges.
+                    </p>
+                </div>
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">02 / RESEARCH</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Research & Intelligence</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Conducting field research, structured questionnaires, sample stratification, and public opinion
+                        surveys.
+                    </p>
+                </div>
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">03 / ANALYTICS</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Data Processing & Analysis</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Validating information, algorithmic data cleaning, organizing booth datasets and developing
+                        predictive insights.
+                    </p>
+                </div>
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">04 / STRATEGY</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Strategic Planning</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Preparing customised strategies, message framing, digital dissemination, and operational booth
+                        mobilization plans.
+                    </p>
+                </div>
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">05 / OPERATIONS</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Deployment & Execution</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Mobilising professionals, establishing war room coordination, and executing grassroots campaign
+                        activities.
+                    </p>
+                </div>
+
+                <div class="card-clean rounded-xl p-6 bg-white">
+                    <div class="text-xs font-mono font-bold text-sage-700 mb-2">06 / REVIEW</div>
+                    <h4 class="font-serif text-lg text-ink-900 mb-2">Monitoring & Evaluation</h4>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        Tracking progress, conducting quality checks, auditing turnout data, and delivering structured
+                        performance reviews.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS & EXPERIENCE -->
+    <section id="projects" class="py-20 md:py-28 bg-[#F4F4EE]/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200 mb-3">
+                        Execution Experience
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight">
+                        Research, Operations & <span class="italic text-sage-800">Consulting Experience.</span>
+                    </h2>
+                </div>
+
+                <!-- Filter Pill Tabs (Clean reference style) -->
+                <div
+                    class="flex items-center gap-1.5 p-1 bg-white border border-cream-300 rounded-lg overflow-x-auto no-scrollbar">
+                    <button onclick="filterProjects('all')"
+                        class="proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-sage-800 bg-sage-100 transition"
+                        data-filter="all">All Projects</button>
+                    <button onclick="filterProjects('surveys')"
+                        class="proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-filter="surveys">Ground Surveys</button>
+                    <button onclick="filterProjects('data')"
+                        class="proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-filter="data">Data & Tech</button>
+                    <button onclick="filterProjects('manpower')"
+                        class="proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-filter="manpower">Manpower</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="surveys">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">Constituency Assessment</span>
+                            <span>Vidhan Sabha</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">Assembly-Level Ground Perception Studies</h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Structured face-to-face sample surveys conducted across 40+ assembly constituencies
+                            evaluating anti-incumbency, candidate favorability, and welfare delivery.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>Sample: 65,000+ Interviews</span>
+                        <span class="text-sage-700 font-medium">Delivered</span>
+                    </div>
+                </div>
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="manpower">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">PAN India Manpower</span>
+                            <span>Multi-State</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">Large-Scale Field Investigator Mobilization
+                        </h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Rapid deployment of 500+ verified survey executives and bilingual supervisors across
+                            Northern and Western states within 72 hours of project signoff.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>500+ On-Ground Staff</span>
+                        <span class="text-sage-700 font-medium">Completed</span>
+                    </div>
+                </div>
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="data">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">Analytics & Intelligence</span>
+                            <span>Constituency Suite</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">Booth-Level Voter Profiling & Dashboard</h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Integration of 1,200+ polling booth voting histories with current demographic assessments
+                            and live visualization dashboards for core strategy rooms.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>1,200+ Booths Mapped</span>
+                        <span class="text-sage-700 font-medium">Active</span>
+                    </div>
+                </div>
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="surveys">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">Telephonic Polling</span>
+                            <span>Statewide</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">CATI Telephonic Sentiment Tracking</h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Multi-wave telephonic polling across 5 regional dialects with instant audio quality audits,
+                            assessing real-time reaction to newly declared policies.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>150,000+ Calls</span>
+                        <span class="text-sage-700 font-medium">Delivered</span>
+                    </div>
+                </div>
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="data">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">War Room & Media</span>
+                            <span>24/7 Operations</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">Centralized Campaign War Room Setup</h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Physical and digital setup of command centers tracking daily field schedules, viral
+                            narrative trends, fake news counters, and candidate travel.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>Daily Leadership Reports</span>
+                        <span class="text-sage-700 font-medium">Standard</span>
+                    </div>
+                </div>
+
+                <div class="proj-card card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-category="manpower">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-ink-500 mb-3">
+                            <span class="text-sage-700 font-semibold uppercase">Quality Audit</span>
+                            <span>Verification</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-2">High-Integrity Ground Data Verification</h4>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Independent audit and telephonic back-check protocols on large third-party datasets, purging
+                            invalid submissions and certifying clean insights.
+                        </p>
+                    </div>
+                    <div
+                        class="pt-3 border-t border-cream-200 text-xs font-mono text-ink-500 flex items-center justify-between">
+                        <span>99.4% Accuracy Target</span>
+                        <span class="text-sage-700 font-medium">Continuous</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAREERS PORTAL (Full Job Board & Application System) -->
+    <section id="careers" class="py-20 md:py-28 bg-[#FBFBF9] border-t border-cream-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200 mb-3">
+                    Careers at KRAC
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight">
+                    Build Your Career With <span class="italic text-sage-800">KRAC.</span>
+                </h2>
+                <p class="text-sm sm:text-base text-ink-700 mt-2 font-medium">
+                    Be Part of a Team That Turns Research into Action.
+                </p>
+                <p class="text-xs sm:text-sm text-ink-600 mt-1 max-w-2xl mx-auto font-light">
+                    We offer opportunities for individuals interested in political consulting, research, analytics,
+                    communication, technology and field operations.
+                </p>
+            </div>
+
+            <!-- Search & Department Filters (Reference style clean search) -->
+            <div
+                class="card-clean rounded-xl p-4 bg-white mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+
+                <div class="relative w-full md:w-96">
+                    <i data-lucide="search" class="w-4 h-4 text-ink-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                    <input type="text" id="job-search"
+                        placeholder="Search position (e.g. Consultant, Analyst, Field)..."
+                        class="w-full pl-9 pr-4 py-2 rounded-lg bg-cream-100 border border-cream-300 text-xs text-ink-900 placeholder-ink-400 focus:outline-none focus:border-sage-500 font-sans">
+                </div>
+
+                <div class="flex items-center gap-1.5 w-full md:w-auto overflow-x-auto no-scrollbar">
+                    <button onclick="filterJobDepartment('all')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-sage-800 bg-sage-100 transition"
+                        data-dept="all">All Roles</button>
+                    <button onclick="filterJobDepartment('Strategy')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-dept="Strategy">Strategy</button>
+                    <button onclick="filterJobDepartment('Research')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-dept="Research">Research & Surveys</button>
+                    <button onclick="filterJobDepartment('Analytics')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-dept="Analytics">Data Analytics</button>
+                    <button onclick="filterJobDepartment('Field')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-dept="Field">Field Operations</button>
+                    <button onclick="filterJobDepartment('Media')"
+                        class="job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition"
+                        data-dept="Media">Media & Creative</button>
+                </div>
+
+            </div>
+
+            <!-- Job Listings Grid -->
+            <div id="jobs-wrapper" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Job 1 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Political Consultant" data-dept="Strategy">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Strategy</span>
+                            <span class="text-xs text-ink-500">Full-Time</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Political Consultant</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> New Delhi / Regional
+                            Deployment
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Develop constituency assessment plans, coordinate campaign managers, analyze local political
+                            dynamics, and prepare candidate briefings.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Political Consultant', 'Strategy')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Research Associate / Senior RA" data-dept="Research">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Research</span>
+                            <span class="text-xs text-ink-500">Full-Time</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Research Associate / Senior RA</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> State Capitals / On-Site
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Design survey tools and structured questionnaires, lead Focus Group Discussions (FGDs),
+                            supervise field quotas, and synthesize research reports.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Research Associate / Senior RA', 'Research')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Data Analyst" data-dept="Analytics">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Analytics</span>
+                            <span class="text-xs text-ink-500">Full-Time</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Data Analyst</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> Hybrid / Central Office
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Process survey datasets with Python/SQL, manage booth databases, build regression models on
+                            voting history, and create interactive BI dashboards.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Data Analyst', 'Analytics')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Campaign Manager" data-dept="Strategy">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Strategy</span>
+                            <span class="text-xs text-ink-500">Full-Time</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Campaign Manager</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> Assembly Field HQ
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Oversee day-to-day candidate scheduling, coordinate volunteer cadence, manage rally setups,
+                            and ensure seamless war room alignment.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Campaign Manager', 'Strategy')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Ground Research Executive / Survey Executive" data-dept="Field">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Field
+                                Operations</span>
+                            <span class="text-xs text-ink-500">Project Based</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Ground Research Executive</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> Multiple Indian States
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Administer tablet-based CAPI surveys in villages and urban wards, record voter issues,
+                            adhere to sampling routes, and ensure high-integrity interviews.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Ground Research Executive', 'Field Operations')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Job 6 -->
+                <div class="job-item card-clean rounded-xl p-6 bg-white flex flex-col justify-between"
+                    data-title="Social Media Manager & Content Writer" data-dept="Media">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-[11px] font-mono px-2 py-0.5 rounded bg-sage-50 text-sage-800 border border-sage-200">Media</span>
+                            <span class="text-xs text-ink-500">Full-Time</span>
+                        </div>
+                        <h4 class="font-serif text-lg text-ink-900 mb-1">Social Media & Content Writer</h4>
+                        <p class="text-xs text-ink-500 mb-3 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-700"></i> New Delhi / Central Desk
+                        </p>
+                        <p class="text-xs text-ink-600 leading-relaxed font-light mb-4">
+                            Draft sharp political communications in English and Hindi, script video reels, supervise
+                            visual creatives, and monitor digital conversations.
+                        </p>
+                    </div>
+                    <button onclick="openApplyModal('Social Media & Content Writer', 'Media')"
+                        class="w-full py-2.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs transition flex items-center justify-center gap-1.5">
+                        <span>Apply For Position</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- General Pool Callout (Clean Ivory Container) -->
+            <div class="mt-12 p-8 rounded-xl bg-cream-200/80 border border-cream-300 text-center max-w-2xl mx-auto">
+                <h4 class="font-serif text-xl text-ink-900 mb-1">Looking for other roles?</h4>
+                <p class="text-xs text-ink-600 mb-5 font-light">
+                    We regularly hire Graphic Designers, Video Editors, CATI Tele-surveyors, and Regional Coordinators
+                    across 14+ Indian states.
+                </p>
+                <button onclick="openApplyModal('General Professional Roster', 'Multi-disciplinary')"
+                    class="px-6 py-2.5 rounded-lg bg-white hover:bg-cream-100 border border-cream-300 text-xs font-semibold text-ink-900 transition">
+                    Submit Resume to General Network &rarr;
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT & PROJECT ENQUIRY -->
+    <section id="contact" class="py-20 md:py-28 bg-[#F4F4EE]/60 border-t border-cream-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Contact Meta -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-[11px] font-semibold border border-sage-200">
+                        Let's Discuss Your Next Project
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-5xl text-ink-900 tracking-tight leading-tight">
+                        Initiate a Strategic <br />
+                        <span class="italic text-sage-800">Consultation.</span>
+                    </h2>
+
+                    <p class="text-sm text-ink-600 leading-relaxed font-light">
+                        Whether you require political consulting, research solutions, data analytics, campaign
+                        management or large-scale field operations, KRAC is ready to understand your requirements.
+                    </p>
+
+                    <!-- Contact Cards -->
+                    <div class="space-y-3 pt-2">
+
+                        <a href="tel:7900595639"
+                            class="card-clean rounded-lg p-4 bg-white flex items-center gap-3.5 group block transition">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-sage-50 text-sage-800 flex items-center justify-center group-hover:bg-sage-100 transition">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-mono text-ink-400 uppercase block">Phone / Helpline</span>
+                                <span class="text-sm font-semibold text-ink-900">+91 7900595639</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:Careers@krac.co.in"
+                            class="card-clean rounded-lg p-4 bg-white flex items-center gap-3.5 group block transition">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-sage-50 text-sage-800 flex items-center justify-center group-hover:bg-sage-100 transition">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-mono text-ink-400 uppercase block">Official
+                                    Correspondence</span>
+                                <span class="text-sm font-semibold text-ink-900">Careers@krac.co.in</span>
+                            </div>
+                        </a>
+
+                        <div class="card-clean rounded-lg p-4 bg-white flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-lg bg-sage-50 text-sage-800 flex items-center justify-center">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-mono text-ink-400 uppercase block">Official Web
+                                    Domain</span>
+                                <span class="text-sm font-semibold text-ink-900">krac.co.in /
+                                    www.kautilyaresearch.com</span>
+                            </div>
+                        </div>
+
+                        <div class="card-clean rounded-lg p-4 bg-white flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-lg bg-sage-50 text-sage-800 flex items-center justify-center">
+                                <i data-lucide="building-2" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-mono text-ink-400 uppercase block">Headquarters</span>
+                                <span class="text-xs font-semibold text-ink-900">New Delhi & Regional Consulting
+                                    Hubs</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Project Enquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="card-clean rounded-2xl p-6 sm:p-8 bg-white border border-cream-300">
+                        <h3 class="font-serif text-2xl text-ink-900 mb-1">Send Us an Enquiry</h3>
+                        <p class="text-xs text-ink-500 mb-6 font-light">Complete the form below. Our consulting team
+                            will connect with you under strict non-disclosure confidence.</p>
+
+                        <form id="enquiry-form" onsubmit="handleEnquiry(event)" class="space-y-4">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Full Name *</label>
+                                    <input type="text" required placeholder="Shri Rajesh Sharma"
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Organisation Name</label>
+                                    <input type="text" placeholder="Political Organisation / Institution"
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Designation</label>
+                                    <input type="text" placeholder="e.g. Campaign In-charge / Secretary"
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="contact@domain.com"
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Contact Number *</label>
+                                    <input type="tel" required placeholder="+91 98765 43210"
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-ink-700 mb-1">Service Required
+                                        *</label>
+                                    <select required
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                                        <option value="" disabled selected>Select Primary Capability</option>
+                                        <option value="Political Consulting & Strategy">01. Political Consulting &
+                                            Strategy</option>
+                                        <option value="Political Research & Opinion Polls">02. Political Research &
+                                            Opinion Polls</option>
+                                        <option value="Data Analytics & Intelligence">03. Data Analytics & Intelligence
+                                        </option>
+                                        <option value="Ground Operations & Booth Management">04. Ground Operations &
+                                            Booth Management</option>
+                                        <option value="Media & Digital Communication">05. Media & Digital Communication
+                                        </option>
+                                        <option value="War Room & Campaign Setup">06. War Room & Campaign Setup</option>
+                                        <option value="PAN India Manpower Deployment">07. PAN India Manpower Deployment
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-ink-700 mb-1">Project Location /
+                                    Constituency Scope *</label>
+                                <input type="text" required
+                                    placeholder="e.g. Uttar Pradesh, Maharashtra, or specific assembly / parliamentary seat"
+                                    class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-ink-700 mb-1">Project Details & Objectives
+                                    *</label>
+                                <textarea rows="3" required
+                                    placeholder="Brief description of the consulting requirement, approximate timeline, and goals..."
+                                    class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" id="enquiry-btn"
+                                class="w-full py-3.5 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs tracking-wider uppercase transition shadow-sm flex items-center justify-center gap-2">
+                                <span>Submit Confidential Enquiry</span>
+                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-cream-300 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+
+                <div class="lg:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2.5">
+                        <div
+                            class="w-8 h-8 rounded bg-deepnavy-850 text-white font-serif font-bold flex items-center justify-center text-sm">
+                            K
+                        </div>
+                        <span class="font-sans font-bold text-base text-ink-900">KAUTILYA RESEARCH & CONSULTING</span>
+                    </div>
+                    <p class="text-xs font-serif italic text-sage-800">
+                        Where Political Intelligence Meets Strategic Execution.
+                    </p>
+                    <p class="text-xs text-ink-500 leading-relaxed max-w-sm font-light">
+                        Multidisciplinary political consulting and research organisation delivering integrated solutions
+                        across political strategy, election management, research, data analytics, media intelligence and
+                        grassroots operations.
+                    </p>
+                </div>
+
+                <div class="space-y-2.5">
+                    <h5 class="text-xs font-mono font-semibold text-ink-900 uppercase">Navigation</h5>
+                    <ul class="space-y-1.5 text-xs text-ink-600 font-light">
+                        <li><a href="#about" class="hover:text-ink-900 transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-ink-900 transition">Capabilities</a></li>
+                        <li><a href="#methodology" class="hover:text-ink-900 transition">Methodology</a></li>
+                        <li><a href="#projects" class="hover:text-ink-900 transition">Projects</a></li>
+                        <li><a href="#careers" class="hover:text-ink-900 transition">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2.5">
+                    <h5 class="text-xs font-mono font-semibold text-ink-900 uppercase">Core Services</h5>
+                    <ul class="space-y-1.5 text-xs text-ink-600 font-light">
+                        <li>Election Strategy</li>
+                        <li>Public Opinion Polls</li>
+                        <li>Data Analytics</li>
+                        <li>Ground Operations</li>
+                        <li>War Room Command</li>
+                        <li>PAN India Manpower</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2.5">
+                    <h5 class="text-xs font-mono font-semibold text-ink-900 uppercase">Direct Contact</h5>
+                    <p class="text-xs text-ink-600 leading-relaxed font-light">
+                        <strong>Email:</strong> Careers@krac.co.in<br />
+                        <strong>Phone:</strong> 7900595639<br />
+                        <strong>Web:</strong> krac.co.in<br />
+                        <strong>Offices:</strong> New Delhi & State Desks
+                    </p>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-8 border-t border-cream-300 flex flex-col sm:flex-row items-center justify-between text-xs text-ink-400 font-light gap-4">
+                <div>
+                    &copy; 2026 Kautilya Research & Consulting. All Rights Reserved.
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-ink-700 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-ink-700 transition">Terms & Conditions</a>
+                    <a href="#" class="hover:text-ink-700 transition">Disclaimer</a>
+                    <a href="#" class="text-sage-700 hover:text-sage-900 font-medium transition">&uarr; Back to Top</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MODAL: APPLICATION SUBMISSION -->
+    <div id="apply-modal"
+        class="fixed inset-0 z-50 bg-ink-900/40 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div
+            class="card-clean max-w-lg w-full rounded-2xl p-6 sm:p-8 bg-white border border-cream-300 shadow-xl relative max-h-[90vh] overflow-y-auto">
+
+            <button onclick="closeApplyModal()"
+                class="absolute top-5 right-5 p-1.5 rounded-lg text-ink-400 hover:text-ink-800 hover:bg-cream-100 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="mb-5">
+                <span id="modal-dept-badge"
+                    class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-sage-100 text-sage-800 font-semibold uppercase">Department</span>
+                <h3 id="modal-role-name" class="font-serif text-2xl text-ink-900 mt-1">Political Consultant</h3>
+                <p class="text-xs text-ink-500 font-light mt-0.5">Submit your profile to KRAC Talent Acquisition.</p>
+            </div>
+
+            <form id="apply-form" onsubmit="handleCandidateApplication(event)" class="space-y-3.5">
+
+                <div>
+                    <label class="block text-xs font-medium text-ink-700 mb-1">Full Legal Name *</label>
+                    <input type="text" required placeholder="Aarav Sharma"
+                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-ink-700 mb-1">Email Address *</label>
+                        <input type="email" required placeholder="name@domain.com"
+                            class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-ink-700 mb-1">Mobile / WhatsApp *</label>
+                        <input type="tel" required placeholder="+91 98765 43210"
+                            class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-ink-700 mb-1">Total Experience</label>
+                        <select
+                            class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                            <option value="Fresher">Fresher / Graduate</option>
+                            <option value="1-2 years">1 – 2 Years</option>
+                            <option value="3-5 years">3 – 5 Years</option>
+                            <option value="5+ years">5+ Years (Lead)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-ink-700 mb-1">Current Location *</label>
+                        <input type="text" required placeholder="e.g. Lucknow / Delhi"
+                            class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-ink-700 mb-1">LinkedIn Profile / Portfolio URL</label>
+                    <input type="url" placeholder="https://linkedin.com/in/username"
+                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-ink-700 mb-1">Upload Resume (PDF, DOCX) *</label>
+                    <div
+                        class="border border-dashed border-cream-400 hover:border-sage-500 rounded-lg p-3 text-center bg-cream-50 cursor-pointer transition">
+                        <input type="file" id="resume-input" required accept=".pdf,.doc,.docx" class="hidden"
+                            onchange="updateResumeName(this)">
+                        <label for="resume-input" class="cursor-pointer flex flex-col items-center">
+                            <i data-lucide="upload" class="w-5 h-5 text-sage-700 mb-1"></i>
+                            <span id="resume-file-name" class="text-xs text-ink-600 font-medium">Click to attach CV (Max
+                                10MB)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-ink-700 mb-1">Brief Note / Past Campaign
+                        Experience</label>
+                    <textarea rows="2" placeholder="Mention previous research, consulting or field projects..."
+                        class="w-full px-3.5 py-2.5 rounded-lg bg-cream-50 border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-sage-500 resize-none"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 rounded-lg bg-deepnavy-850 hover:bg-deepnavy-900 text-white font-medium text-xs tracking-wider uppercase transition shadow-sm">
+                    Submit Application
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- MODAL: DETAILED CAPABILITY SCOPE -->
+    <div id="capability-modal"
+        class="fixed inset-0 z-50 bg-ink-900/40 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div
+            class="card-clean max-w-xl w-full rounded-2xl p-6 sm:p-8 bg-white border border-cream-300 shadow-xl relative max-h-[85vh] overflow-y-auto">
+
+            <button onclick="closeCapabilityModal()"
+                class="absolute top-5 right-5 p-1.5 rounded-lg text-ink-400 hover:text-ink-800 hover:bg-cream-100 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="mb-4">
+                <span id="cap-modal-num" class="text-xs font-mono font-bold text-sage-700 uppercase">Pillar 01</span>
+                <h3 id="cap-modal-title" class="font-serif text-2xl text-ink-900 mt-1">Political Consulting</h3>
+            </div>
+
+            <p id="cap-modal-desc" class="text-xs text-ink-600 leading-relaxed font-light mb-4"></p>
+
+            <div class="border-t border-cream-200 pt-3">
+                <h5 class="text-xs font-mono font-semibold text-ink-900 uppercase mb-2.5">Detailed Deliverables:</h5>
+                <ul id="cap-modal-list" class="space-y-1.5 text-xs text-ink-700 font-light">
+                    <!-- Populated by JS -->
+                </ul>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-cream-200 flex justify-end">
+                <a href="#contact" onclick="closeCapabilityModal()"
+                    class="px-5 py-2 rounded-lg bg-deepnavy-850 text-white text-xs font-medium hover:bg-deepnavy-900 transition">
+                    Commission Consulting Desk &rarr;
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transition-all duration-300 ease-out">
+        <div
+            class="px-5 py-3.5 rounded-xl bg-white border border-sage-200 shadow-lg text-ink-900 flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-sage-700"></i>
+            <div>
+                <h6 id="toast-title" class="text-xs font-semibold text-ink-900">Success</h6>
+                <p id="toast-body" class="text-xs text-ink-500 font-light">Your request has been logged.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLLERS -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Navbar
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(l => {
+            l.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Capability Details Data
+        const capabilityDetails = {
+            '01': {
+                num: 'CAPABILITY 01',
+                title: 'Political Consulting & Election Strategy',
+                desc: 'We provide strategic consulting solutions designed to address the evolving requirements of political organisations and electoral assignments.',
+                items: [
+                    'Election strategy and campaign planning',
+                    'Assembly and constituency-level assessments',
+                    'Political landscape analysis',
+                    'Candidate and organisational assessments',
+                    'Campaign coordination across grassroots networks',
+                    'Strategic monitoring and evaluation'
+                ]
+            },
+            '02': {
+                num: 'CAPABILITY 02',
+                title: 'Political Research & Opinion Polls',
+                desc: 'Research is fundamental to understanding political environments and public perspectives.',
+                items: [
+                    'Public opinion surveys',
+                    'Constituency-level research',
+                    'Voter feedback studies',
+                    'Political perception research',
+                    'Candidate assessment surveys',
+                    'Governance and public issue assessments',
+                    'Pre-election and post-election studies',
+                    'Exit poll research, subject to applicable legal requirements'
+                ]
+            },
+            '03': {
+                num: 'CAPABILITY 03',
+                title: 'Data Analytics & Political Intelligence',
+                desc: 'We transform collected information into structured databases, meaningful analysis and actionable insights.',
+                items: [
+                    'Data collection and processing',
+                    'Data cleaning and verification',
+                    'Booth-level data analysis',
+                    'Constituency database management',
+                    'Survey data analytics',
+                    'Research dashboards',
+                    'Data visualisation and reporting',
+                    'Information management systems'
+                ]
+            },
+            '04': {
+                num: 'CAPABILITY 04',
+                title: 'Ground Operations & Booth Management',
+                desc: 'We support large-scale ground operations through structured planning, professional manpower and field-level coordination.',
+                items: [
+                    'Ground team deployment',
+                    'Booth-level organisational research',
+                    'Field activity coordination',
+                    'Volunteer network management',
+                    'Local stakeholder research',
+                    'Field monitoring and reporting',
+                    'Constituency-level operational support'
+                ]
+            },
+            '05': {
+                num: 'CAPABILITY 05',
+                title: 'Media & Digital Communication',
+                desc: 'We provide integrated digital communication and media management services.',
+                items: [
+                    'Social media management',
+                    'Digital campaign planning',
+                    'Content strategy and development',
+                    'Graphic design and creative production',
+                    'Video editing and production',
+                    'Media monitoring',
+                    'Digital reputation and communication assessment',
+                    'Performance reporting & narrative buildup'
+                ]
+            },
+            '06': {
+                num: 'CAPABILITY 06',
+                title: 'War Room & Campaign Management',
+                desc: 'We establish structured campaign monitoring and coordination systems to support effective project execution.',
+                items: [
+                    'War room planning and setup',
+                    'Centralised campaign coordination',
+                    'Daily activity monitoring',
+                    'Field reporting systems',
+                    'Campaign progress tracking',
+                    'Issue monitoring and escalation',
+                    'Strategic review and reporting'
+                ]
+            },
+            '07': {
+                num: 'CAPABILITY 07',
+                title: 'PAN India Research & Manpower Solutions',
+                desc: 'We provide scalable research and manpower support for projects across different regions of India.',
+                items: [
+                    'CATI – Computer Assisted Telephonic Interviewing',
+                    'CAPI – Computer Assisted Personal Interviewing',
+                    'Face-to-face field surveys',
+                    'Large-scale data collection',
+                    'Data verification and quality control',
+                    'Regional language research teams',
+                    'Survey executives and field investigators',
+                    'Project-based manpower deployment'
+                ]
+            }
+        };
+
+        function openCapabilityModal(id) {
+            const data = capabilityDetails[id];
+            if (!data) return;
+            document.getElementById('cap-modal-num').innerText = data.num;
+            document.getElementById('cap-modal-title').innerText = data.title;
+            document.getElementById('cap-modal-desc').innerText = data.desc;
+
+            const list = document.getElementById('cap-modal-list');
+            list.innerHTML = '';
+            data.items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-2';
+                li.innerHTML = `<span class="text-sage-700 font-bold">•</span><span>${item}</span>`;
+                list.appendChild(li);
+            });
+
+            const modal = document.getElementById('capability-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCapabilityModal() {
+            const modal = document.getElementById('capability-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Careers Modal
+        function openApplyModal(title, dept) {
+            document.getElementById('modal-role-name').innerText = title;
+            document.getElementById('modal-dept-badge').innerText = dept;
+            const modal = document.getElementById('apply-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeApplyModal() {
+            const modal = document.getElementById('apply-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function updateResumeName(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('resume-file-name').innerText = "Attached: " + input.files[0].name;
+            }
+        }
+
+        // Projects Filter
+        function filterProjects(cat) {
+            document.querySelectorAll('.proj-tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === cat) {
+                    btn.className = "proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-sage-800 bg-sage-100 transition";
+                } else {
+                    btn.className = "proj-tab-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition";
+                }
+            });
+
+            document.querySelectorAll('.proj-card').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Careers Filters
+        function filterJobDepartment(dept) {
+            document.querySelectorAll('.job-dept-btn').forEach(btn => {
+                if (btn.getAttribute('data-dept') === dept) {
+                    btn.className = "job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-sage-800 bg-sage-100 transition";
+                } else {
+                    btn.className = "job-dept-btn px-3 py-1.5 rounded-md text-xs font-medium text-ink-600 hover:text-ink-900 transition";
+                }
+            });
+            runJobSearch();
+        }
+
+        document.getElementById('job-search').addEventListener('input', runJobSearch);
+
+        function runJobSearch() {
+            const activeDeptBtn = document.querySelector('.job-dept-btn.bg-sage-100');
+            const dept = activeDeptBtn ? activeDeptBtn.getAttribute('data-dept') : 'all';
+            const term = document.getElementById('job-search').value.toLowerCase().trim();
+
+            document.querySelectorAll('.job-item').forEach(item => {
+                const itemDept = item.getAttribute('data-dept');
+                const text = item.innerText.toLowerCase();
+                const matchesDept = (dept === 'all' || itemDept === dept);
+                const matchesTerm = text.includes(term);
+
+                if (matchesDept && matchesTerm) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Toast
+        function showNotification(title, body) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-body').innerText = body;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 4500);
+        }
+
+        // Forms
+        function handleEnquiry(e) {
+            e.preventDefault();
+            const btn = document.getElementById('enquiry-btn');
+            btn.innerText = "Transmitting...";
+            setTimeout(() => {
+                btn.innerHTML = `<span>Submit Confidential Enquiry</span> <i data-lucide="send" class="w-3.5 h-3.5"></i>`;
+                lucide.createIcons();
+                e.target.reset();
+                showNotification("Enquiry Received", "Our consulting team has received your brief and will connect shortly.");
+            }, 1000);
+        }
+
+        function handleCandidateApplication(e) {
+            e.preventDefault();
+            closeApplyModal();
+            e.target.reset();
+            document.getElementById('resume-file-name').innerText = "Click to attach CV (Max 10MB)";
+            showNotification("Application Logged", "Your credentials have been forwarded to Careers@krac.co.in.");
+        }
+
+        // Outside clicks & Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeApplyModal();
+                closeCapabilityModal();
+            }
+        });
+
+        document.getElementById('apply-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'apply-modal') closeApplyModal();
+        });
+
+        document.getElementById('capability-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'capability-modal') closeCapabilityModal();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: krc_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: krc_payload
+    ports:
+      - '5432:5432'
+    volumes:
+      - krc_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d krc_payload']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - krc_network
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: krc_app
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      DATABASE_URI: postgres://postgres:postgrespassword@postgres:5432/krc_payload
+      PAYLOAD_SECRET: 74d89fa3b17c24f682e09156a81234bceb
+      NEXT_PUBLIC_SERVER_URL: http://localhost:3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - krc_media:/app/media
+    networks:
+      - krc_network
+
+volumes:
+  krc_pgdata:
+    driver: local
+  krc_media:
+    driver: local
+
+networks:
+  krc_network:
+    driver: bridge
